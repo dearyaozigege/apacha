@@ -1,0 +1,23 @@
+{
+  "name": "apacha",
+  "version": "1.0.0",
+  "description": "静态资源服务器",
+  "main": "app.js",
+  "dependencies": {
+    "mime": "^2.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dearyaozigege/apacha.git"
+  },
+  "author": "tina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dearyaozigege/apacha/issues"
+  },
+  "homepage": "https://github.com/dearyaozigege/apacha#readme"
+}

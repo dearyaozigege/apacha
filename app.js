@@ -11,7 +11,7 @@ let rootPath = path.join(__dirname,'www');
 console.log(rootPath)
 
 
-let server = http.createServer((request,Response)=>{
+let server = http.createServer((request,response)=>{
     // Response.end('today is tuesday');
     //拼接输入的地址 生成新地址
     let targetPath = path.join(rootPath,request.url)
@@ -20,15 +20,16 @@ let server = http.createServer((request,Response)=>{
     console.log(fs.existsSync(targetPath));
     console.log(targetPath);
     if(fs.existsSync(targetPath)){
-        Response.setHeader('content-type','text/html;charset=utf-8')    
+        response.setHeader('content-type','text/html;charset=utf-8')    
         //因为返回的是布尔值 能进来则代表存在
         //再判断此文件是 文件或是文件夹
         // let stats = fs.stat(targetPath);
-        Response.end('你存在,我深深的脑海里')
+        response.end('你存在,我深深的脑海里')
     }else{
-        Response.setHeader('content-type','text/html;charset=utf-8')
+        response.statusCode = 404;
+        response.setHeader('content-type','text/html;charset=utf-8')
         //false 页面不存在
-        Response.end(`
+        response.end(`
             <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
             <html><head>
             <title>404 Not Found</title>
@@ -37,6 +38,7 @@ let server = http.createServer((request,Response)=>{
             <p>你请求的${request.url}不在服务器上哦,检查一下呗</p>
             </body></html>
         `)
+        
     }
 })
 
